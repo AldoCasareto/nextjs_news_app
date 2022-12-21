@@ -3,6 +3,7 @@ import { Bars3Icon } from '@heroicons/react/24/solid';
 import Link from 'next/link';
 import { SunIcon, MoonIcon } from '@heroicons/react/24/solid';
 import NavLinks from '../NavLinks';
+import SearchBox from './SearchBox';
 
 const Header = () => {
   return (
@@ -12,7 +13,7 @@ const Header = () => {
         <Link href='/' prefetch={false}>
           <h1 className='text-4xl font-serif text-center'>
             Updated
-            <span className='underline decoration-6 decoration-orange-600'> World-wide </span>
+            <span className='underline decoration-6 decoration-orange-600'> WorldWide </span>
             News!
           </h1>
         </Link>
@@ -21,8 +22,9 @@ const Header = () => {
             Subscribe now
           </button>
         </div>
-        <NavLinks />
       </div>
+      <NavLinks />
+      <SearchBox />
     </header>
   );
 };

@@ -8,9 +8,14 @@ type NavProps = {
 
 const NavLink = ({ isActive, category }: NavProps) => {
   return (
-    <div>
-      <Link href={`/${category}`}>{category}</Link>
-    </div>
+    <Link
+      className={`navlink ${
+        isActive && 'underline decoration-orange-400 underline-offset-4 font-bold text-lg'
+      }`}
+      href={`/news/${category}`}
+    >
+      {category}
+    </Link>
   );
 };
 
