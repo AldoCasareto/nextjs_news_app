@@ -6,7 +6,6 @@ export const fetchNews = async (
   keywords?: string,
   isDynamic?: boolean
 ) => {
-  // graphQL query
   const query = gql`
     query MyQuery($access_key: String!, $categories: String!, $keywords: String) {
       myQuery(
@@ -37,19 +36,18 @@ export const fetchNews = async (
       }
     }
   `;
-  // Fetch function w/ next 13
-  const res = await fetch('https://altos.stepzen.net/api/austere-gorilla/__graphql', {
+  const res = await fetch('https://kirkland.stepzen.net/api/quaffing-eagle/__graphql', {
     method: 'POST',
     cache: isDynamic ? 'no-cache' : 'default',
     next: isDynamic ? { revalidate: 0 } : { revalidate: 10000 },
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Apikey ${process.env.STEPZEN_API_KEY}`,
+      Authorization: `Apikey ${process.env.STEPZEN_KEY}`,
     },
     body: JSON.stringify({
       query,
       variables: {
-        access_key: process.env.ACCESS_KEY,
+        access_key: process.env.MEDIASTACK_KEY,
         categories: category,
         keywords: keywords,
       },
@@ -57,9 +55,7 @@ export const fetchNews = async (
   });
   console.log('LOADING NEW DATA FROM API FOR CATEGORY -> ', category, keywords);
   const newsResponse = await res.json();
-  // sort function
   const news = sortNewsByImage(newsResponse.data.myQuery);
 
   return news;
-  // return results
 };
