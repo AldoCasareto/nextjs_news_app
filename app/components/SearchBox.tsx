@@ -23,7 +23,7 @@ const SearchBox = (props: Props) => {
     >
       <input
         placeholder='Search keywords'
-        className='flex-1 w-full h-14 rounded-sm placeholder-gray-500 text-gray-500 outline-none bg-transparent dark-text-orange-500'
+        className='w-full h-14 rounded-sm placeholder-gray-500 text-gray-500 outline-none bg-transparent dark:text-orange-400 flex-1'
         value={searchInput}
         onChange={(e) => setSearchInput(e.target.value)}
       />

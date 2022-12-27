@@ -10,7 +10,7 @@ const NavLink = ({ isActive, category }: NavProps) => {
   return (
     <Link
       className={`navlink ${
-        isActive && 'underline decoration-orange-400 underline-offset-4 font-bold text-lg'
+        isActive && 'underline decoration-orange-400 underline-offset-4 font-bold'
       }`}
       href={`/news/${category}`}
     >
